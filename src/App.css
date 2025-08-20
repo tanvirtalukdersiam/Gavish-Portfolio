@@ -1,0 +1,293 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
+* {
+  font-family: "Sora", sans-serif;
+}
+#main {
+  scroll-behavior: smooth;
+}
+:root {
+  --primary-color: #8750f7;
+  --secondary-color: #2a1454;
+  --color-gradient-secondary: linear-gradient(
+    90deg,
+    #8750f7 0,
+    #2a1454 51%,
+    #8750f7
+  );
+  --white-color: #fff;
+}
+::-webkit-scrollbar {
+  width: 7px;
+  background-color: var(--secondary-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  /* border-radius: 1ex; */
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.75);
+}
+
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+@media screen and (min-width: 1400px) {
+  .container {
+    max-width: 1290px;
+  }
+}
+.menu-bar button {
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  height: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  transform-origin: center center;
+  transform: rotate(0deg);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.menu-bar button span {
+  height: 3px;
+  width: 35px;
+  display: block;
+  background: var(--primary-color);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out 0s;
+  margin-left: auto;
+}
+.dark .menu-bar button span {
+  background: var(--white-color);
+}
+.menu-bar button span:nth-child(2) {
+  width: 40px;
+  transition-delay: 0.2s;
+}
+.menu-bar button span:nth-child(3) {
+  width: 30px;
+}
+.menu-bar button span:nth-child(4) {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: block;
+  width: 3px;
+  height: 0;
+  transition: height 0.4s;
+}
+.menu-bar button.active {
+  transform: rotate(45deg);
+  transition-delay: 0.4s;
+}
+.menu-bar button.active span:first-child,
+.menu-bar button.active span:nth-child(3) {
+  width: 0;
+}
+.menu-bar button.active span:nth-child(4) {
+  height: 40px;
+  transition: height 0.2s ease;
+  transition-delay: 0.2s;
+}
+.odometer.odometer-auto-theme,
+.odometer.odometer-auto-theme .odometer-digit,
+.odometer.odometer-theme-default,
+.odometer.odometer-theme-default .odometer-digit {
+  display: -moz-inline-box;
+  -moz-box-orient: vertical;
+  display: inline-block;
+  vertical-align: middle;
+  vertical-align: auto;
+  position: relative;
+  display: inline;
+}
+.odometer.odometer-auto-theme .odometer-digit .odometer-digit-spacer,
+.odometer.odometer-theme-default .odometer-digit .odometer-digit-spacer {
+  display: -moz-inline-box;
+  -moz-box-orient: vertical;
+  display: inline-block;
+  vertical-align: middle;
+  vertical-align: auto;
+  visibility: hidden;
+  display: inline;
+}
+.odometer.odometer-auto-theme .odometer-digit .odometer-digit-inner,
+.odometer.odometer-theme-default .odometer-digit .odometer-digit-inner {
+  text-align: left;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+.odometer.odometer-auto-theme .odometer-digit .odometer-ribbon,
+.odometer.odometer-theme-default .odometer-digit .odometer-ribbon {
+  display: block;
+}
+.odometer.odometer-auto-theme .odometer-digit .odometer-ribbon-inner,
+.odometer.odometer-theme-default .odometer-digit .odometer-ribbon-inner {
+  display: block;
+  -webkit-backface-visibility: hidden;
+}
+.odometer.odometer-auto-theme .odometer-digit .odometer-value,
+.odometer.odometer-theme-default .odometer-digit .odometer-value {
+  display: block;
+  -webkit-transform: translateZ(0);
+}
+.odometer.odometer-auto-theme
+  .odometer-digit
+  .odometer-value.odometer-last-value,
+.odometer.odometer-theme-default
+  .odometer-digit
+  .odometer-value.odometer-last-value {
+  position: absolute;
+}
+.odometer.odometer-auto-theme.odometer-animating-up .odometer-ribbon-inner,
+.odometer.odometer-theme-default.odometer-animating-up .odometer-ribbon-inner {
+  -webkit-transition: -webkit-transform 2s;
+  -moz-transition: -moz-transform 2s;
+  -ms-transition: -ms-transform 2s;
+  -o-transition: -o-transform 2s;
+  transition: transform 2s;
+}
+.odometer.odometer-auto-theme.odometer-animating-down .odometer-ribbon-inner,
+.odometer.odometer-auto-theme.odometer-animating-up.odometer-animating
+  .odometer-ribbon-inner,
+.odometer.odometer-theme-default.odometer-animating-down .odometer-ribbon-inner,
+.odometer.odometer-theme-default.odometer-animating-up.odometer-animating
+  .odometer-ribbon-inner {
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  transform: translateY(-100%);
+}
+.odometer.odometer-auto-theme.odometer-animating-down.odometer-animating
+  .odometer-ribbon-inner,
+.odometer.odometer-theme-default.odometer-animating-down.odometer-animating
+  .odometer-ribbon-inner {
+  -webkit-transition: -webkit-transform 2s;
+  -moz-transition: -moz-transform 2s;
+  -ms-transition: -ms-transform 2s;
+  -o-transition: -o-transform 2s;
+  transition: transform 2s;
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+  transform: translateY(0);
+}
+.odometer.odometer-auto-theme,
+.odometer.odometer-theme-default {
+  font-family:
+    Helvetica Neue,
+    sans-serif;
+  line-height: 1.1em;
+}
+.odometer.odometer-auto-theme .odometer-value,
+.odometer.odometer-theme-default .odometer-value {
+  text-align: center;
+}
+.odometer span {
+  line-height: 1.4;
+}
+.exp-card::after {
+  background: linear-gradient(
+    to right in oklab,
+    rgb(135, 80, 247) 0%,
+    rgb(42, 20, 84) 50%,
+    rgb(135, 80, 247) 100%
+  );
+  background-size: 200%;
+}
+.swiper-pagination-bullet {
+  background: var(--primary-color) !important;
+}
+.blog-cat {
+  background-size: 200% !important;
+}
+.blog-cat:hover {
+  background-size: 100% !important;
+}
+.blog-data-card::after {
+  background: linear-gradient(260deg, #2a1454, #8750f7);
+}
+.submit-btn {
+  background-size: 200%;
+}
+.submit-btn:hover {
+  background-position: -100%;
+}
+.intro_text svg text {
+  font-family: "Russo One", sans-serif !important;
+}
+.intro_text svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 46%;
+  top: 55%;
+  transform: translate(-50%, -50%) scale(1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: -1;
+  animation: pulsate 3s ease-in-out infinite alternate;
+}
+.intro_text svg text {
+  text-transform: uppercase;
+  stroke-width: 1.2;
+  stroke: var(--primary-color);
+  fill: transparent;
+  font-size: 240px;
+  display: inline-block;
+  opacity: 0;
+}
+.dark .intro_text svg text {
+  stroke: var(--secondary-color);
+}
+.intro_text svg text.animate-stroke {
+  animation: stroke 4s;
+  opacity: 0.2;
+}
+.dark .intro_text svg text.animate-stroke {
+  opacity: 0.7;
+}
+@keyframes stroke {
+  0% {
+    stroke-dashoffset: 25%;
+    stroke-dasharray: 0 50%;
+    stroke-width: 1;
+  }
+  to {
+    stroke-dashoffset: 100%;
+    stroke-dasharray: 100% 0;
+    stroke-width: 1;
+  }
+}
+@keyframes pulsate {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+.container {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+@media screen and (min-width: 600px) {
+  .container {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
